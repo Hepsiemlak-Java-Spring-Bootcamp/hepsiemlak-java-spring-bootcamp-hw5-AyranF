@@ -27,12 +27,12 @@ public class AdvertController {
 	}
 
 	@GetMapping(value = "/adverts")
-	public ResponseEntity<Object> getAllAdvert() throws Exception {
+	public ResponseEntity<List<AdvertResponse>> getAllAdvert() throws Exception {
 		return new ResponseEntity<>(advertService.getAllAdverts(), HttpStatus.OK);
 	}
 	
 	@GetMapping(value = "/adverts/{advertNo}")
-	public ResponseEntity<Object> getAdvertByAdvertId(@PathVariable(required = false) int advertNo) {
+	public ResponseEntity<AdvertResponse> getAdvertByAdvertId(@PathVariable(required = false) int advertNo) {
 		return new ResponseEntity<>(advertService.getAdvertByAdvertId(advertNo), HttpStatus.OK);
 	}
 	
